@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'jade-react',
+  name: 'ryanswrt:jade-react',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: 'Compile Jade files for use in React elements',
@@ -20,9 +20,9 @@ Package.registerBuildPlugin({
     // XXX maybe uglify should be applied by this plugin instead of via magic
     // weak dependency.
     use: [
-        'caching-compiler',
+        'caching-compiler@1.0.0',
         'ecmascript',
-        'templating-tools',
+        //'templating-tools@',
         //'jade-react-compiler'
     ],
     npmDependencies:{
@@ -43,7 +43,7 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('jade-react');
+  api.use('ryanswrt:jade-react');
   api.use('isobuild:compiler-plugin@1.0.0');
   api.addFiles('jade-react-tests.js');
 });
